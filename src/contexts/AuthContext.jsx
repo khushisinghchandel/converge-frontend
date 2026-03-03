@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export const AuthContext = createContext({});
 
 const client = axios.create({
-    baseURL: "https://converge-backend-vq5a.onrender.com" // Points to your backend
+    baseURL: "https://converge-backend-vq5a.onrender.com/api/v1/users" 
 });
 
 export const AuthProvider = ({ children }) => {
