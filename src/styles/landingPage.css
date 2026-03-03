@@ -1,0 +1,225 @@
+/* LandingPage.css */
+
+.container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #09211e 0%, #15453b 100%);
+    color: #ffffff;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    position: relative;
+    z-index: 10;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 2rem;
+}
+
+.logo-text {
+    /* This creates a beautiful white-to-mint gradient on the text itself! */
+    background: linear-gradient(45deg, #ffffff, #a3d9c9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* --- 1. TERTIARY: Join as Guest (Clean text with animated underline) --- */
+.guest-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    position: relative; /* Needed for the underline animation */
+}
+
+.guest-link:hover {
+    opacity: 1;
+}
+
+/* This creates a slick underline that slides in when you hover! */
+.guest-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #a3d9c9; /* Mint green underline */
+    transition: width 0.3s ease;
+}
+
+.guest-link:hover::after {
+    width: 100%;
+}
+
+/* --- 2. SECONDARY: Log In (Sleek Outline Button) --- */
+.login-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 24px;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Semi-transparent white border */
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.login-link:hover {
+    background-color: #ffffff;
+    color: #09211e; /* Changes text to dark green so you can read it on white */
+    border-color: #ffffff;
+}
+.nav-actions {
+    display: flex;
+    /* This gap controls the spacing between Guest, Log In, and Register */
+    gap: 1.5rem; 
+    align-items: center;
+}
+
+/* We created a fresh styling for the Register button to make it pop */
+.register-btn {
+    background-color: #a3d9c9; /* The mint green from your heading highlight */
+    color: #09211e; /* Dark forest green text for high contrast */
+    border: none;
+    padding: 10px 28px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.register-btn:hover {
+    transform: scale(1.05);
+    background-color: #ffffff; /* Flashes white on hover */
+}
+
+/* Hide links on mobile so the header doesn't get cluttered */
+@media (max-width: 768px) {
+    .nav-actions {
+        display: none;
+    }
+}
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5% 4rem 5%;
+    min-height: calc(100vh - 100px);
+    position: relative;
+    z-index: 10;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+
+
+.main-heading {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: 2px;
+}
+
+.heading-highlight {
+    color: #a3d9c9;
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+.cta-button {
+    background-color: #7a8b28;
+    color: white;
+    border: none;
+    padding: 16px 36px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.cta-button:hover {
+    transform: scale(1.05); /* Added a nice hover effect! */
+}
+
+.arrow {
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.right-content {
+    flex: 1 1 400px;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(9, 33, 30, 0.3), transparent);
+    pointer-events: none;
+}
+
+.dot-grid {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: radial-gradient(#ffffff 2px, transparent 2px);
+    background-size: 20px 20px;
+    opacity: 0.2;
+    z-index: 1;
+    pointer-events: none;
+}

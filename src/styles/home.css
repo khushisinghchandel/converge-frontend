@@ -1,0 +1,319 @@
+/* Home.css */
+
+.home-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #09211e 0%, #15453b 100%);
+    color: #ffffff;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- REUSED NAVBAR STYLES --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    position: relative;
+    z-index: 10;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon { font-size: 2rem; }
+.logo-text { font-size: 2rem; font-weight: bold; margin: 0; letter-spacing: 1px; }
+
+.nav-actions {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+/* --- NEW NAVBAR BUTTONS --- */
+.history-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.history-link:hover { opacity: 1; }
+
+.history-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #a3d9c9;
+    transition: width 0.3s ease;
+}
+
+.history-link:hover::after { width: 100%; }
+
+.logout-btn {
+    background-color: transparent;
+    color: #ff6b6b; /* Soft red to indicate a destructive/logout action */
+    border: 1px solid #ff6b6b;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+    background-color: #ff6b6b;
+    color: #ffffff;
+}
+
+/* --- MAIN DASHBOARD LAYOUT --- */
+.home-main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- THE GLASSMORPHISM CARD --- */
+/* --- THE GLASSMORPHISM CARD (UPDATED SIZE) --- */
+.action-card {
+    background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    
+    /* Increased padding from 3rem to 4rem so the text doesn't hug the edges */
+    padding: 4rem; 
+    
+    width: 100%;
+    /* Increased max-width from 450px to 650px to make it significantly larger */
+    max-width: 650px; 
+    
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 1px;
+}
+
+.card-subtitle {
+    color: #a3d9c9;
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+}
+
+/* --- BUTTONS & INPUTS --- */
+.create-btn {
+    width: 100%;
+    background-color: #7a8b28;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.create-btn:hover {
+    transform: translateY(-2px);
+    background-color: #8b9d30;
+}
+
+.plus-icon {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+/* --- THE "OR" DIVIDER --- */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.divider span {
+    padding: 0 15px;
+}
+
+/* --- JOIN SECTION (UPDATED FOR VERTICAL STACKING) --- */
+.join-section {
+    display: flex;
+    flex-direction: column; /* This forces the button below the input */
+    gap: 25px; /* Adds nice breathing room between them */
+    width: 100%;
+}
+
+.join-input {
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't break the 100% width */
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 16px; /* Slightly taller to match the new massive button */
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.join-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.join-input:focus {
+    border-color: #a3d9c9;
+}
+
+.join-btn {
+    width: 100%; /* Makes the button stretch fully across */
+    background-color: #ffffff;
+    color: #09211e;
+    border: none;
+    padding: 16px; /* Matches the input height */
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.join-btn:hover:not(:disabled) {
+    background-color: #a3d9c9;
+    transform: translateY(-2px); /* Adds a tiny lift effect on hover */
+}
+
+.join-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+/* --- DECORATIONS --- */
+.dot-grid {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(#ffffff 2px, transparent 2px);
+    background-size: 20px 20px;
+    opacity: 0.15;
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN (Half-Screen & Mobile)
+   ========================================= */
+
+/* 1. Half-Screen Laptop & Tablet (Under 1024px) */
+@media (max-width: 1024px) {
+    /* Stack the content vertically and center it */
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+        padding-top: 2rem;
+    }
+
+    .left-content {
+        padding-right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers the button and text */
+    }
+
+    .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .right-content {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .image-wrapper {
+        max-width: 85%; /* Keeps the image from becoming overwhelmingly huge when stacked */
+    }
+}
+
+/* 2. Narrow Half-Screen & Large Phones (Under 850px) */
+@media (max-width: 850px) {
+    /* Shrink the navbar items instead of hiding them */
+    .nav-actions {
+        gap: 1rem;
+    }
+
+    .login-link, .register-btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+
+    .guest-link {
+        font-size: 0.9rem;
+    }
+    
+    .logo-text {
+        font-size: 1.4rem;
+    }
+}
+
+/* 3. True Mobile (Under 600px) */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 5%;
+    }
+
+    /* Hide the least important link to save space on tiny screens */
+    .guest-link {
+        display: none; 
+    }
+
+    .image-wrapper {
+        max-width: 100%; 
+    }
+    
+    .main-heading {
+        font-size: 3rem; /* Prevents text from overflowing the screen */
+    }
+}
