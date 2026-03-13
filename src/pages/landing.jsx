@@ -53,7 +53,7 @@ export default function LandingPage() {
                     </h1>
                     
                     <p className="description">
-                        Converge distance with Converge Video Calls. Break down language barriers in real-time and join immersive video calls with live translated subtitles.
+                        Coverge distance with Converge Video Calls. Break down language barriers in real-time and join immersive video calls with live translated subtitles.
                     </p>
 
                     {/* CTA Button defaults to Register (1) */}
