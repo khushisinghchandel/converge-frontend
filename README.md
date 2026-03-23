@@ -1,16 +1,49 @@
-# React + Vite
+# 🎥 Converge: Real-Time Video Conferencing Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![WebRTC](https://img.shields.io/badge/WebRTC-333333?style=for-the-badge&logo=webrtc&logoColor=white)
+![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white)
 
-Currently, two official plugins are available:
+**Converge** is a full-stack, peer-to-peer video conferencing application. Built entirely from scratch, it bypasses traditional server-heavy media routing by utilizing WebRTC and UDP for zero-latency video and audio streaming, supported by a custom Node.js signaling server.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 **[Live Demo: Converge on Vercel](https://converge01.vercel.app/)** 
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Key Engineering Features
 
-## Expanding the ESLint configuration
+* **Peer-to-Peer Architecture:** Utilizes WebRTC for direct browser-to-browser media streaming. Implements NAT hole punching via Google STUN servers to seamlessly connect users across different private networks.
+* **Custom Signaling Server:** A Node.js and Socket.IO backend that acts as a switchboard to manage concurrent meeting rooms, broadcast real-time text chat, and facilitate the critical exchange of ICE candidates.
+* **Live Multi-Lingual Subtitles:** Integrates the browser's native Web Speech API for real-time speech-to-text transcription, routing the data through the MyMemory REST API to broadcast translated captions to all connected peers instantly.
+* **Seamless Screen Sharing:** Implements dynamic track replacement (`replaceTrack`) to switch between camera and screen-share streams without dropping the WebRTC connection.
+* **Stateful Token Authentication:** A custom-built, persistent authentication flow utilizing cryptographic tokens stored in `localStorage`, guarded on the frontend by Higher-Order Components (HOCs).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🏗️ System Architecture 
+
+Converge uses a hybrid networking approach to maximize performance and minimize server costs:
+1. **Signaling (TCP/WebSockets):** When a user joins a room, the React client connects to the Node.js server via Socket.IO. The server broadcasts their presence and acts as a middleman to exchange network coordinates (SDP/ICE Candidates).
+2. **Media Streaming (UDP/WebRTC):** Once the network coordinates are exchanged, the server steps out of the way. Video and audio data are fired directly between the users' browsers using UDP, ensuring high-quality, zero-latency communication.
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+* React.js (Vite)
+* Context API (Global State Management)
+* React Router DOM
+* WebRTC & MediaDevices API
+* Tailwind CSS / CSS Modules (UI/UX)
+
+**Backend:**
+* Node.js & Express.js
+* Socket.IO
+* MongoDB & Mongoose
+* Built-in Crypto module (Authentication)
+
+---
